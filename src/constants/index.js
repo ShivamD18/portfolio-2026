@@ -19,9 +19,9 @@ const navLinks = [
 
 const words = [
   { text: "Hardware", imgPath: "/images/ideas.svg" },
+  { text: "Code", imgPath: "/images/code.svg" },
   { text: "Firmware", imgPath: "/images/concepts.svg" },
   { text: "Sensors", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
   { text: "Robotics", imgPath: "/images/ideas.svg" },
   { text: "Data", imgPath: "/images/concepts.svg" },
   { text: "Controls", imgPath: "/images/designs.svg" },
@@ -30,19 +30,18 @@ const words = [
 
 // Updated to the custom stats we created earlier
 const counterItems = [
-  { value: 6, suffix: "+", label: "Engineering & Data Projects" },
+  { value: 30, suffix: "+", label: "Engineering & Data Projects" },
   { value: 5, suffix: "", label: "System Models Simulated" },
-  { value: 500, suffix: "+", label: "Daily Patient Encounters" },
+  { value: 20, suffix: "+", label: "Softwares Known" },
   { value: 91, suffix: "%", label: "Demand Forecasting Accuracy" },
 ];
 
-// If you have a scrolling logo marquee, you can replace these with logos of TMU, William Osler, RESNA, Python, SolidWorks, etc.
 const logoIconsList = [
-  { imgPath: "/images/logos/company-logo-1.png" },
   { imgPath: "/images/logos/company-logo-2.png" },
-  { imgPath: "/images/logos/company-logo-3.png" },
   { imgPath: "/images/logos/company-logo-4.png" },
   { imgPath: "/images/logos/company-logo-5.png" },
+  { imgPath: "/images/logos/company-logo-6.png" },
+  { imgPath: "/images/logos/company-logo-8.png" },
 ];
 
 // Tailored to your engineering and analytical mindset

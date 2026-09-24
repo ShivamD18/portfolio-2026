@@ -157,9 +157,3 @@ npm run preview
 - **Email**: [dave.shivam18@gmail.com](mailto:dave.shivam18@gmail.com)
 - **LinkedIn**: [linkedin.com/in/shivam-dave-a89072209](https://linkedin.com/in/shivam-dave-a89072209)
 
----
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-# HELLO THIS IS MY PORTFOLIO!!!
