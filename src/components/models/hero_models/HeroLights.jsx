@@ -2,40 +2,46 @@ import * as THREE from "three";
 
 const HeroLights = () => (
   <>
-    {/* lamp's light */}
+    {/* Main lamp's light - Clean, bright white for primary illumination */}
     <spotLight
       position={[2, 5, 6]}
       angle={0.15}
       penumbra={0.2}
       intensity={100}
-      color="white"
+      color="#ffffff" 
     />
-    {/* bluish overhead lamp */}
+    
+    {/* Overhead lamp - Soft forest green (replaces the neon blue) */}
     <spotLight
       position={[4, 5, 4]}
       angle={0.3}
       penumbra={0.5}
-      intensity={40}
-      color="#4cc9f0"
+      intensity={80}
+      color="#fffff"
     />
-    {/* purplish side fill */}
+    
+    {/* Side fill - Warm off-white to keep the shadows bright and airy (replaces purple) */}
     <spotLight
       position={[-3, 5, 5]}
       angle={0.4}
       penumbra={1}
-      intensity={60}
-      color="#9d4edd"
+      intensity={100}
+      color="#fffff"
     />
-    {/* area light for soft moody fill */}
+    
+    {/* Area light for soft fill - Medium forest green for a lush undertone */}
     <primitive
-      object={new THREE.RectAreaLight("#a259ff", 8, 3, 2)}
+      object={new THREE.RectAreaLight("#e0fff1", 8, 3, 2)}
       position={[1, 3, 4]}
       rotation={[-Math.PI / 4, Math.PI / 4, 0]}
-      intensity={15}
+      intensity={45}
     />
-    {/* subtle point light for atmospheric tone */}
-    <pointLight position={[0, 1, 0]} intensity={10} color="#7209b7" />
-    <pointLight position={[1, 2, -2]} intensity={10} color="#0d00a4" />
+    
+    {/* Subtle point light - Light forest green atmospheric tone */}
+    <pointLight position={[0, 1, 0]} intensity={10} color="#52b788" />
+    
+    {/* Secondary point light - Deeper forest green contrast in the shadows (replaces deep blue) */}
+    <pointLight position={[1, 2, -2]} intensity={10} color="#13634b" />
   </>
 );
 

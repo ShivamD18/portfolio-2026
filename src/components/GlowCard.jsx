@@ -39,7 +39,7 @@ const GlowCard = ({ card, index, children }) => {
         ))}
       </div>
       <div className="mb-5">
-        <p className="text-white-50 text-lg">{card.review}</p>
+        <p className="text-forest-200 text-lg">{card.review}</p>
       </div>
       {children}
     </div>

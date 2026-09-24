@@ -47,17 +47,20 @@ const Hero = () => {
                 </span>
               </h1>
               <h1>into Real Projects</h1>
-              <h1>that Deliver Results</h1>
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Adrian, a developer based in Croatia with a passion for
-              code.
+{/* Added max-w-2xl and xl:max-w-3xl to keep the text on the left side */}
+            <p className="text-forest-300 md:text-xl relative z-10 pointer-events-none leading-relaxed max-w-2xl xl:max-w-3xl xl:pr-10 mt-6">
+              I am a Mechatronics Engineering student focused on digital signal processing, embedded systems, and biomedical instrumentation, building at the intersection of low-level firmware and clinical sensor technology.
+              <br className="hidden md:block" /><br className="hidden md:block" />
+              <span className="font-semibold text-forest-200">Currently working on: </span> 
+              Phonoangiography digital signal processing (DSP)—developing filtering and spectral analysis pipelines for acoustic vascular bruits to identify arterial stenosis non-invasively.
             </p>
 
+            {/* Make sure your Button component accepts text color overrides, or update it inside the Button.jsx file */}
             <Button
               text="See My Work"
-              className="md:w-80 md:h-16 w-60 h-12"
+              className="md:w-80 md:h-16 w-60 h-12 mt-8 text-white bg-forest-200 hover:bg-forest-300"
               id="counter"
             />
           </div>

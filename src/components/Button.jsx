@@ -13,7 +13,7 @@ const Button = ({ text, className, id }) => {
         const target = document.getElementById("counter"); // Find the section with ID "counter"
 
         // Only scroll if we found the section and an ID is passed in
-        // taht prevents the contact button from scrolling to the top
+        // that prevents the contact button from scrolling to the top
         if (target && id) {
           const offset = window.innerHeight * 0.15; // Leave a bit of space at the top
 
@@ -27,11 +27,23 @@ const Button = ({ text, className, id }) => {
       }}
       className={`${className ?? ""} cta-wrapper`} // Add base + extra class names
     >
-      <div className="cta-button group">
-        <div className="bg-circle" />
-        <p className="text">{text}</p>
-        <div className="arrow-wrapper">
-          <img src="/images/arrow-down.svg" alt="arrow" />
+      {/* Forced the background to be dark green and removed the light border */}
+      <div className="cta-button group !bg-forest-200 !border-forest-300">
+        
+        {/* The hover circle effect becomes a slightly darker green */}
+        <div className="bg-circle !bg-forest-300" />
+        
+        {/* Forced the text to be off-white so it pops against the dark green */}
+        <p className="text !text-offwhite-100">{text}</p>
+        
+        {/* The arrow container and the arrow itself */}
+        <div className="arrow-wrapper !bg-forest-300">
+          <img 
+            src="/images/arrow-down.svg" 
+            alt="arrow" 
+            className="brightness-0 invert" 
+            /* ^ 'brightness-0 invert' turns a black SVG into a white SVG magically! */
+          />
         </div>
       </div>
     </a>

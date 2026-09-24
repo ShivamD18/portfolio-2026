@@ -15,7 +15,7 @@ export function Room(props) {
   const matcapTexture = useTexture("/images/textures/mat1.png");
 
   const curtainMaterial = new THREE.MeshPhongMaterial({
-    color: "#d90429",
+    color: "#005236",
   });
 
   const bodyMaterial = new THREE.MeshPhongMaterial({
@@ -23,7 +23,7 @@ export function Room(props) {
   });
 
   const tableMaterial = new THREE.MeshPhongMaterial({
-    color: "#582f0e",
+    color: "#f7f4f2",
   });
 
   const radiatorMaterial = new THREE.MeshPhongMaterial({
@@ -35,7 +35,7 @@ export function Room(props) {
   });
 
   const pillowMaterial = new THREE.MeshPhongMaterial({
-    color: "#8338ec",
+    color: "#1c794a",
   });
 
   const chairMaterial = new THREE.MeshPhongMaterial({
@@ -47,7 +47,7 @@ export function Room(props) {
       <EffectComposer>
         <SelectiveBloom
           selection={screensRef}
-          intensity={1.5} // Strength of the bloom
+          intensity={0.3} // Strength of the bloom
           luminanceThreshold={0.2} // Minimum luminance needed
           luminanceSmoothing={0.9} // Smooth transition
           blendFunction={BlendFunction.ADD} // How it blends
