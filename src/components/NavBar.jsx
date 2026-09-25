@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { navLinks } from "../constants";
 
 const NavBar = () => {
@@ -10,7 +9,6 @@ const NavBar = () => {
     // create an event listener for when the user scrolls
     const handleScroll = () => {
       // check if the user has scrolled down at least 10px
-      // if so, set the state to true
       const isScrolled = window.scrollY > 10;
       setScrolled(isScrolled);
     };
@@ -25,8 +23,19 @@ const NavBar = () => {
   return (
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
-        <a href="#hero" className="logo">
-          Shivam Dave
+        
+        {/* Updated Logo Section */}
+        <a href="#hero" className="logo flex items-center gap-3">
+          {/* Headshot Image */}
+          <img 
+            src="/images/HeadshotNoTie.jpg" 
+            alt="Shivam Dave" 
+            className="w-13 h-13 md:w-15 md:h-15 rounded-full object-cover border-2 border-forest-300 shadow-sm transition-transform duration-300 hover:scale-105"
+          />
+          {/* Enlarged Name */}
+          <span className="text-2xl md:text-3xl font-bold text-forest-200">
+            Shivam Dave
+          </span>
         </a>
 
         <nav className="desktop">
