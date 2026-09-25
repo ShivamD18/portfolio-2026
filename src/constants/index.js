@@ -105,14 +105,14 @@ const techStackIcons = [
   {
     name: "C++ & Firmware",
     modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
+    scale: 50,
+    rotation: [0, 0, 0],
   },
   {
     name: "3D Modeling & CAD",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
+    modelPath: "/models/eth.glb",
+    scale: 2.5,
+    rotation: [0.2, 0, 0],
   },
   {
     name: "Git Version Control",
@@ -125,18 +125,7 @@ const techStackIcons = [
 // Pulled straight from your resume
 const expCards = [
   {
-    review: "Designing and evaluating soft robotic actuation systems using embedded sensing, pneumatic control, and closed-loop feedback to improve motion accuracy, repeatability, and response stability.",
-    imgPath: "/images/exp-robotics.png", // Add a robotics/lab image
-    logoPath: "/images/tmu-logo.png", // Add TMU logo
-    title: "Advanced Manufacturing Soft Robotics Researcher",
-    date: "2026 - Present",
-    responsibilities: [
-      "Supported development of adaptive robotic platforms by integrating embedded control and intelligent algorithms.",
-      "Contributed to research workflows involving experimental testing, system tuning, and hardware integration.",
-      "Developed and analyzed experimental models utilizing data-driven performance evaluation.",
-    ],
-  },
-  {
+    
     review: "Coordinated information flow between physicians, nurses, registration staff, and diagnostic departments to support timely clinical decision-making under high-pressure conditions.",
     imgPath: "/images/exp-medical.png", // Add a hospital/medical image
     logoPath: "/images/osler-logo.png", // Add William Osler Health logo
@@ -147,7 +136,20 @@ const expCards = [
       "Managed multiple concurrent requests while maintaining accuracy and confidentiality.",
       "Operated efficiently in a fast-paced environment demanding strong attention to detail and teamwork.",
     ],
-  }
+  },
+  {
+
+    review: "Designing and evaluating soft robotic actuation systems using embedded sensing, pneumatic control, and closed-loop feedback to improve motion accuracy, repeatability, and response stability.",
+    imgPath: "/images/exp-robotics.png", // Add a robotics/lab image
+    logoPath: "/images/tmu-logo.png", // Add TMU logo
+    title: "Advanced Manufacturing Soft Robotics Researcher",
+    date: "Summer 2026",
+    responsibilities: [
+      "Supported development of adaptive robotic platforms by integrating embedded control and intelligent algorithms.",
+      "Contributed to research workflows involving experimental testing, system tuning, and hardware integration.",
+      "Developed and analyzed experimental models utilizing data-driven performance evaluation.",
+    ],
+  },
 ];
 
 const certificationsList = [
