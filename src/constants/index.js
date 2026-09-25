@@ -153,6 +153,12 @@ const expCards = [
 ];
 
 const certificationsList = [
+    {
+    title: "IEEE Student Member",
+    issuer: "IEEE",
+    description: "Active membership in the Institute of Electrical and Electronics Engineers, participating in technical events and networking opportunities.",
+    imgPath: "/images/ieee.svg", // Add an IEEE logo
+  },
   {
     title: "Google AI Professional Certificate",
     issuer: "Coursera",

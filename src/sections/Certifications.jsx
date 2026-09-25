@@ -21,8 +21,8 @@ const Certifications = () => {
                     <img 
                       src={item.imgPath} 
                       alt={item.issuer} 
-                      className="w-full h-full object-cover"
-                      onError={(e) => { e.target.style.display = 'none' }} // hides image if path is broken
+                      className="w-full h-full object-contain p-1.5"
+                      onError={(e) => { e.target.style.display = 'none' }} 
                     />
                   </div>
                   <div>

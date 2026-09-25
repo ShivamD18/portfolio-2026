@@ -7,9 +7,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AppShowcase = () => {
   const sectionRef = useRef(null);
-  const rydeRef = useRef(null);
-  const libraryRef = useRef(null);
-  const ycDirectoryRef = useRef(null);
+  
+  // Renamed refs to match your actual projects
+  const phonoRef = useRef(null);
+  const optoRef = useRef(null);
+  const lidarRef = useRef(null);
 
   useGSAP(() => {
     // Animation for the main section
@@ -20,7 +22,7 @@ const AppShowcase = () => {
     );
 
     // Animations for each app showcase
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
+    const cards = [phonoRef.current, optoRef.current, lidarRef.current];
 
     cards.forEach((card, index) => {
       gsap.fromTo(
@@ -47,42 +49,59 @@ const AppShowcase = () => {
     <div id="work" ref={sectionRef} className="app-showcase">
       <div className="w-full">
         <div className="showcaselayout">
-          <div ref={rydeRef} className="first-project-wrapper">
+          
+          <div ref={phonoRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/project1.png" alt="Ryde App Interface" />
+              {/* Added !object-contain here so the image scales to fit perfectly without cropping */}
+              <img 
+                src="/images/phono.png" 
+                alt="Phonoangiography Interface" 
+                className="!object-contain" 
+              />
             </div>
             <div className="text-content">
-              <h2>
+              {/* Updated to forest green colors */}
+              <h2 className="text-forest-200">
                 Phonoangiography DSP: Acoustic Telemetry & Hemodynamic Flow Triage
               </h2>
-              <p className="text-white-50 md:text-xl">
+              <p className="text-forest-300 md:text-xl">
                 An edge-deployable digital signal processing (DSP) and machine learning pipeline for real-time acoustic phonoangiography. The system characterizes vascular access patency and valvular hemodynamics by isolating turbulent flow regimes (stenotic murmurs, bruits) from laminar valve closures in phonocardiogram (PCG) recordings.
               </p>
             </div>
           </div>
 
           <div className="project-list-wrapper overflow-hidden">
-            <div className="project" ref={libraryRef}>
-              <div className="image-wrapper bg-[#FFEFDB]">
+            <div className="project" ref={optoRef}>
+              {/* Swapped pastel backgrounds for light mode off-white */}
+              <div className="image-wrapper bg-offwhite-200 border border-offwhite-300">
                 <img
-                  src="/images/project2.png"
-                  alt="Library Management Platform"
+                  src="/images/opto.png"
+                  alt="Supply Chain Analytics Platform"
+                  className="!object-contain"
                 />
               </div>
-              <h2>Supply Chain Analytics & 
-                Inventory Optimization Engine</h2>
-              <p className="text-white-50 md:text-s">
+              <h2 className="text-forest-200 mt-4">
+                Supply Chain Analytics & Inventory Optimization Engine
+              </h2>
+              <p className="text-forest-300 text-sm mt-2">
                 An end-to-end data pipeline, predictive modeling engine, and interactive control tower designed to optimize enterprise logistics. This platform mitigates supplier lead-time variability, automates inventory replenishment (EOQ/ROP), and minimizes procurement costs through constrained optimization, providing actionable intelligence via Streamlit and Power BI.
               </p>
             </div>
 
-            <div className="project" ref={ycDirectoryRef}>
-              <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="YC Directory App" />
+            <div className="project" ref={lidarRef}>
+              <div className="image-wrapper bg-offwhite-200 border border-offwhite-300">
+                <img 
+                  src="/images/project3.png" 
+                  alt="Lidar Scanning App" 
+                  className="!object-contain"
+                />
               </div>
-              <h2>Lidar Scanning & 3D Reconstruction with Arduino Mega</h2>
+              <h2 className="text-forest-200 mt-4">
+                Lidar Scanning & 3D Reconstruction with Arduino Mega
+              </h2>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
