@@ -205,7 +205,7 @@ const socialImgs = [
   },
   {
     name: "github",
-    imgPath: "/images/github.png", // Make sure to add a github logo to your images folder
+    imgPath: "/images/git.svg", // Make sure to add a github logo to your images folder
     link: "https://github.com/ShivamD18",
   },
   {
