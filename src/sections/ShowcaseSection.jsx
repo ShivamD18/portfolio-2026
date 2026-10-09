@@ -99,6 +99,9 @@ const AppShowcase = () => {
               <h2 className="text-forest-200 mt-4">
                 Lidar Scanning & 3D Reconstruction with Arduino Mega
               </h2>
+              <p className="text-forest-300 text-sm mt-2">
+                A 3D scanning and reconstruction system using a Lidar sensor and Arduino Mega. The system captures spatial data to create accurate 3D models of objects and environments, enabling applications in robotics, mapping, and virtual reality.
+              </p>
             </div>
           </div>
           
