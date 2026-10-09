@@ -11,7 +11,6 @@ const AppShowcase = () => {
   const phonoRef = useRef(null);
   const optoRef = useRef(null);
   const lidarRef = useRef(null);
-  // 1. Add new refs for the two additional projects
   const project4Ref = useRef(null);
   const project5Ref = useRef(null);
 
@@ -22,7 +21,6 @@ const AppShowcase = () => {
       { opacity: 1, duration: 1.5 }
     );
 
-    // 2. Add the new refs to the cards array so they animate on scroll
     const cards = [
       phonoRef.current, 
       optoRef.current, 
@@ -77,7 +75,8 @@ const AppShowcase = () => {
 
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={optoRef}>
-              <div className="image-wrapper bg-offwhite-200 border border-offwhite-300">
+              {/* Removed bg-offwhite-200 and border classes here */}
+              <div className="image-wrapper">
                 <img
                   src="/images/opto.png"
                   alt="Supply Chain Analytics Platform"
@@ -93,7 +92,8 @@ const AppShowcase = () => {
             </div>
 
             <div className="project" ref={lidarRef}>
-              <div className="image-wrapper bg-offwhite-200 border border-offwhite-300">
+              {/* Removed bg-offwhite-200 and border classes here */}
+              <div className="image-wrapper">
                 <img 
                   src="/images/project3.png" 
                   alt="Lidar Scanning App" 
@@ -108,9 +108,9 @@ const AppShowcase = () => {
               </p>
             </div>
 
-            {/* 3. Add Project 4 Block */}
             <div className="project" ref={project4Ref}>
-              <div className="image-wrapper bg-offwhite-200 border border-offwhite-300">
+              {/* Removed bg-offwhite-200 and border classes here */}
+              <div className="image-wrapper">
                 <img 
                   src="/images/gazebo.png" 
                   alt="Autonomous UR10e Pick-and-Place Trajectory Planner" 
@@ -125,9 +125,9 @@ const AppShowcase = () => {
               </p>
             </div>
 
-            {/* 4. Add Project 5 Block */}
             <div className="project" ref={project5Ref}>
-              <div className="image-wrapper bg-offwhite-200 border border-offwhite-300">
+              {/* Removed bg-offwhite-200 and border classes here */}
+              <div className="image-wrapper">
                 <img 
                   src="/images/rocket.png" 
                   alt="Computational Fluid Dynamics Simulation of Rocket Nozzle Flow" 
