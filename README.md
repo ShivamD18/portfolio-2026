@@ -1,10 +1,10 @@
-# 🚀 Shivam Dave — 3D Interactive Portfolio
+# Shivam Dave — 3D Interactive Portfolio
 
 An immersive, high-performance personal portfolio built with **React 19**, **Three.js / React Three Fiber**, **GSAP**, and **Tailwind CSS v4**. This portfolio showcases engineering research, quantitative analytics, and software projects through interactive 3D models, smooth scroll-triggered animations, and a modern light-mode design system.
 
 ---
 
-## 📸 Highlights & Core Features
+## Highlights & Core Features
 
 - **Interactive 3D Hero Workstation**:
   - Isometric 3D room rendered with `@react-three/fiber` and `@react-three/drei`.
@@ -48,7 +48,7 @@ An immersive, high-performance personal portfolio built with **React 19**, **Thr
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 3d-portfolio/
@@ -94,7 +94,7 @@ An immersive, high-performance personal portfolio built with **React 19**, **Thr
 
 ---
 
-## 🚦 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 Ensure you have [Node.js](https://nodejs.org/) installed (v18.0.0 or higher recommended).
@@ -141,7 +141,7 @@ npm run preview
 
 ---
 
-## ⚙️ Customization Guide
+## Customization Guide
 
 - **Personal Information & Experience**: Edit [`src/constants/index.js`](file:///c:/Users/daves/OneDrive/Documents/Projects/Portfolio/3d-portfolio/src/constants/index.js) to update your bio, career experiences, skills, and project descriptions.
 - **Visual Theme & Colors**: Modify the `@theme` variables and utility classes in [`src/index.css`](file:///c:/Users/daves/OneDrive/Documents/Projects/Portfolio/3d-portfolio/src/index.css).
@@ -149,7 +149,7 @@ npm run preview
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Shivam Alap Dave**
 - **Degree**: Mechatronics Engineering, Toronto Metropolitan University
