@@ -1,4 +1,4 @@
-# Shivam Dave — 3D Interactive Portfolio
+# Shivam Dave 3D Interactive Portfolio
 
 An immersive, high-performance personal portfolio built with **React 19**, **Three.js / React Three Fiber**, **GSAP**, and **Tailwind CSS v4**. This portfolio showcases engineering research, quantitative analytics, and software projects through interactive 3D models, smooth scroll-triggered animations, and a modern light-mode design system.
 
