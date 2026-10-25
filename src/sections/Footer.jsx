@@ -8,10 +8,20 @@ const Footer = () => {
           <p>Terms & Conditions</p>
         </div>
         <div className="socials">
-          {socialImgs.map((socialImg, index) => (
-            <div key={index} className="icon">
-              <img src={socialImg.imgPath} alt="social icon" />
-            </div>
+          {socialImgs.map(({ name, imgPath, link }) => (
+            <a
+              key={name}
+              href={link}
+              className="icon"
+              aria-label={name}
+              // open web profiles in a new tab, but let mailto links open the mail app
+              {...(link.startsWith("http") && {
+                target: "_blank",
+                rel: "noopener noreferrer",
+              })}
+            >
+              <img src={imgPath} alt="" />
+            </a>
           ))}
         </div>
         <div className="flex flex-col justify-center">

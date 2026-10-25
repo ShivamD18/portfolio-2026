@@ -52,6 +52,7 @@ const Hero = () => {
 {/* Added max-w-2xl and xl:max-w-3xl to keep the text on the left side */}
             <p className="text-forest-300 md:text-xl relative z-10 pointer-events-none leading-relaxed max-w-2xl xl:max-w-3xl xl:pr-10 mt-6">
               I am a 4th Year <span className="font-semibold text-forest-200">Mechatronics Engineering student</span> focused on digital signal processing, embedded systems, and biomedical instrumentation, building at the intersection of low-level firmware and clinical sensor technology.
+              {/* the line breaks are hidden on mobile, so keep a space between the sentences */}{" "}
               <br className="hidden md:block" /><br className="hidden md:block" />
               <span className="font-semibold text-forest-200">Currently working on: </span> 
               Phonoangiography digital signal processing (DSP) developing filtering and spectral analysis pipelines for acoustic vascular bruits to identify arterial stenosis non-invasively.
@@ -67,7 +68,7 @@ const Hero = () => {
         </header>
 
         {/* RIGHT: 3D Model or Visual */}
-        <figure>
+        <figure className="w-full xl:w-auto mt-10 xl:mt-0">
           <div className="hero-3d-layout">
             <HeroExperience />
           </div>

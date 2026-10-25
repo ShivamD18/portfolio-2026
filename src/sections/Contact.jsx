@@ -7,6 +7,8 @@ import ContactExperience from "../components/models/contact/ContactExperience";
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  // "success" or "error" after a send attempt, null before
+  const [status, setStatus] = useState(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -21,6 +23,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // Show loading state
+    setStatus(null);
 
     try {
       await emailjs.sendForm(
@@ -32,8 +35,10 @@ const Contact = () => {
 
       // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
+      setStatus("success");
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+      setStatus("error");
     } finally {
       setLoading(false); // Always stop loading, even on error
     }
@@ -48,7 +53,7 @@ const Contact = () => {
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
-            <div className="flex-center card-border rounded-xl p-10">
+            <div className="flex-col-center card-border rounded-xl p-10">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
@@ -93,7 +98,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit">
+                <button type="submit" disabled={loading}>
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">
@@ -105,6 +110,28 @@ const Contact = () => {
                   </div>
                 </button>
               </form>
+
+              {/* aria-live so screen readers announce the result too */}
+              <p aria-live="polite" className="w-full mt-5 text-sm font-semibold">
+                {status === "success" && (
+                  <span className="text-forest-200">
+                    Thanks! Your message was sent. I'll get back to you soon.
+                  </span>
+                )}
+                {status === "error" && (
+                  <span className="text-red-700">
+                    Something went wrong sending your message. Please try
+                    again, or email me at{" "}
+                    <a
+                      href="mailto:dave.shivam18@gmail.com"
+                      className="underline"
+                    >
+                      dave.shivam18@gmail.com
+                    </a>
+                    .
+                  </span>
+                )}
+              </p>
             </div>
           </div>
           <div className="xl:col-span-7 min-h-96">

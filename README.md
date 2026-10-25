@@ -51,7 +51,7 @@ An immersive, high-performance personal portfolio built with **React 19**, **Thr
 ## Project Structure
 
 ```text
-3d-portfolio/
+portfolio-2026/
 ├── public/
 │   ├── images/              # Icons, badges, brand SVGs, and project preview assets
 │   │   ├── exp-*.svg        # Experience card horizontal badges
@@ -77,11 +77,10 @@ An immersive, high-performance personal portfolio built with **React 19**, **Thr
 │   ├── sections/            # Page sections
 │   │   ├── Hero.jsx
 │   │   ├── ShowcaseSection.jsx
-│   │   ├── LogoShowcase.jsx
 │   │   ├── FeatureCards.jsx
 │   │   ├── Experience.jsx   # Timeline with GSAP scroll animations
 │   │   ├── TechStack.jsx
-│   │   ├── Testimonials.jsx
+│   │   ├── Certifications.jsx
 │   │   ├── Contact.jsx
 │   │   └── Footer.jsx
 │   ├── App.jsx              # Root page composition
@@ -103,15 +102,16 @@ Ensure you have [Node.js](https://nodejs.org/) installed (v18.0.0 or higher reco
 Clone the repository and install the project dependencies:
 
 ```bash
-# Navigate to the portfolio directory
-cd 3d-portfolio
+# Clone the repository and move into it
+git clone https://github.com/ShivamD18/portfolio-2026.git
+cd portfolio-2026
 
 # Install npm dependencies
 npm install
 ```
 
 ### 3. Environment Variables Setup
-To enable the contact form, create a `.env` file in the root of `3d-portfolio/`:
+To enable the contact form, create a `.env` file in the project root:
 
 ```env
 VITE_APP_EMAILJS_SERVICE_ID=your_service_id
@@ -143,9 +143,9 @@ npm run preview
 
 ## Customization Guide
 
-- **Personal Information & Experience**: Edit [`src/constants/index.js`](file:///c:/Users/daves/OneDrive/Documents/Projects/Portfolio/3d-portfolio/src/constants/index.js) to update your bio, career experiences, skills, and project descriptions.
-- **Visual Theme & Colors**: Modify the `@theme` variables and utility classes in [`src/index.css`](file:///c:/Users/daves/OneDrive/Documents/Projects/Portfolio/3d-portfolio/src/index.css).
-- **3D Models**: Place optimized `.glb` models into [`public/models/`](file:///c:/Users/daves/OneDrive/Documents/Projects/Portfolio/3d-portfolio/public/models) and reference them inside the corresponding R3F components.
+- **Personal Information & Experience**: Edit [`src/constants/index.js`](src/constants/index.js) to update your bio, career experiences, skills, and project descriptions.
+- **Visual Theme & Colors**: Modify the `@theme` variables and utility classes in [`src/index.css`](src/index.css).
+- **3D Models**: Place optimized `.glb` models into [`public/models/`](public/models) and reference them inside the corresponding R3F components.
 
 ---
 

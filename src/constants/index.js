@@ -36,14 +36,6 @@ const counterItems = [
   { value: 91, suffix: "%", label: "Demand Forecasting Accuracy" },
 ];
 
-const logoIconsList = [
-  { imgPath: "/images/logos/company-logo-2.png" },
-  { imgPath: "/images/logos/company-logo-4.png" },
-  { imgPath: "/images/logos/company-logo-5.png" },
-  { imgPath: "/images/logos/company-logo-6.png" },
-  { imgPath: "/images/logos/company-logo-8.png" },
-];
-
 // Tailored to your engineering and analytical mindset
 const abilities = [
   {
@@ -224,7 +216,6 @@ const socialImgs = [
 export {
   words,
   abilities,
-  logoIconsList,
   counterItems,
   expCards,
   expLogos,

@@ -4,6 +4,8 @@ import { navLinks } from "../constants";
 const NavBar = () => {
   // track if the user has scrolled down the page
   const [scrolled, setScrolled] = useState(false);
+  // track if the mobile menu is open
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // create an event listener for when the user scrolls
@@ -21,7 +23,9 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
+    <header
+      className={`navbar ${scrolled || menuOpen ? "scrolled" : "not-scrolled"}`}
+    >
       <div className="inner">
         
         {/* Updated Logo Section */}
@@ -51,12 +55,47 @@ const NavBar = () => {
           </ul>
         </nav>
 
-        <a href="#contact" className="contact-btn group">
-          <div className="inner">
-            <span>Contact me</span>
-          </div>
-        </a>
+        <div className="flex items-center gap-3">
+          <a href="#contact" className="contact-btn group">
+            <div className="inner">
+              <span>Contact me</span>
+            </div>
+          </a>
+
+          {/* Menu button, only shown below the lg breakpoint where the desktop nav is hidden */}
+          <button
+            type="button"
+            className="menu-btn"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <img src="/images/menu.svg" alt="" />
+          </button>
+        </div>
       </div>
+
+      {menuOpen && (
+        <nav id="mobile-menu" className="mobile">
+          <ul>
+            {navLinks.map(({ link, name }) => (
+              <li key={name}>
+                {/* close the menu once a section is picked */}
+                <a href={link} onClick={() => setMenuOpen(false)}>
+                  {name}
+                </a>
+              </li>
+            ))}
+            {/* the Contact me button is hidden on phones, so link it here */}
+            <li className="sm:hidden">
+              <a href="#contact" onClick={() => setMenuOpen(false)}>
+                Contact me
+              </a>
+            </li>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }
