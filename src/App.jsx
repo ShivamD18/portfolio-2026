@@ -1,27 +1,35 @@
-import Certifications from "./sections/Certifications";
-import Footer from "./sections/Footer";
-import Contact from "./sections/Contact";
-import TechStack from "./sections/TechStack";
-import Experience from "./sections/Experience";
-import Hero from "./sections/Hero";
-import ShowcaseSection from "./sections/ShowcaseSection";
-import LogoShowcase from "./sections/LogoShowcase";
-import FeatureCards from "./sections/FeatureCards";
 import Navbar from "./components/NavBar";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Projects from "./sections/Projects";
+import Experience from "./sections/Experience";
+import Skills from "./sections/Skills";
+import Certifications from "./sections/Certifications";
+import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
+import useReveal from "./hooks/useReveal";
 
-const App = () => (
-  <>
-    <Navbar />
-    <Hero />
-    <ShowcaseSection />
-    <LogoShowcase />
-    <FeatureCards />
-    <Experience />
-    <TechStack />
-    <Certifications />
-    <Contact />
-    <Footer />
-  </>
-);
+const App = () => {
+  useReveal();
+
+  return (
+    <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <Navbar />
+      <main id="main">
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Skills />
+        <Certifications />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default App;
