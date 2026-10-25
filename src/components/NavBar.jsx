@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { navLinks } from "../constants";
+import { navLinks, profile } from "../constants";
+import { CloseIcon, DownloadIcon, MenuIcon } from "./Icons";
 
 const NavBar = () => {
   // track if the user has scrolled down the page
@@ -8,41 +9,39 @@ const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    // create an event listener for when the user scrolls
-    const handleScroll = () => {
-      // check if the user has scrolled down at least 10px
-      const isScrolled = window.scrollY > 10;
-      setScrolled(isScrolled);
-    };
-
-    // add the event listener to the window
-    window.addEventListener("scroll", handleScroll);
-
-    // cleanup the event listener when the component is unmounted
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // close the mobile menu with the Escape key
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header
       className={`navbar ${scrolled || menuOpen ? "scrolled" : "not-scrolled"}`}
     >
       <div className="inner">
-        
-        {/* Updated Logo Section */}
-        <a href="#hero" className="logo flex items-center gap-3">
-          {/* Headshot Image */}
-          <img 
-            src="/images/HeadshotNoTie.jpg" 
-            alt="Shivam Dave" 
-            className="w-13 h-13 md:w-15 md:h-15 rounded-full object-cover border-2 border-forest-300 shadow-sm transition-transform duration-300 hover:scale-105"
+        <a href="#hero" className="logo" onClick={closeMenu}>
+          <img
+            src="/images/headshot-sm.webp"
+            alt=""
+            width="48"
+            height="48"
+            className="size-11 md:size-12 rounded-full object-cover border-2 border-forest-200"
           />
-          {/* Enlarged Name */}
-          <span className="text-2xl md:text-3xl font-bold text-forest-200">
-            Shivam Dave
-          </span>
+          <span>{profile.name}</span>
         </a>
 
-        <nav className="desktop">
+        <nav className="desktop" aria-label="Main">
           <ul>
             {navLinks.map(({ link, name }) => (
               <li key={name} className="group">
@@ -56,13 +55,20 @@ const NavBar = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="#contact" className="contact-btn group">
-            <div className="inner">
-              <span>Contact me</span>
-            </div>
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary hidden sm:inline-flex"
+          >
+            <DownloadIcon className="size-4" />
+            Résumé
+          </a>
+          <a href="#contact" className="btn btn-primary hidden sm:inline-flex">
+            Contact me
           </a>
 
-          {/* Menu button, only shown below the lg breakpoint where the desktop nav is hidden */}
+          {/* Menu button, only shown below the xl breakpoint where the desktop nav is hidden */}
           <button
             type="button"
             className="menu-btn"
@@ -71,26 +77,35 @@ const NavBar = () => {
             aria-controls="mobile-menu"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <img src="/images/menu.svg" alt="" />
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <nav id="mobile-menu" className="mobile">
+        <nav id="mobile-menu" className="mobile" aria-label="Main">
           <ul>
             {navLinks.map(({ link, name }) => (
               <li key={name}>
-                {/* close the menu once a section is picked */}
-                <a href={link} onClick={() => setMenuOpen(false)}>
+                <a href={link} onClick={closeMenu}>
                   {name}
                 </a>
               </li>
             ))}
-            {/* the Contact me button is hidden on phones, so link it here */}
+            {/* the header buttons are hidden on phones, so link them here */}
             <li className="sm:hidden">
-              <a href="#contact" onClick={() => setMenuOpen(false)}>
+              <a href="#contact" onClick={closeMenu}>
                 Contact me
+              </a>
+            </li>
+            <li className="sm:hidden">
+              <a
+                href={profile.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+              >
+                Download résumé
               </a>
             </li>
           </ul>
@@ -98,6 +113,6 @@ const NavBar = () => {
       )}
     </header>
   );
-}
+};
 
 export default NavBar;

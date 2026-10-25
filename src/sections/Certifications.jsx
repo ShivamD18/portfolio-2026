@@ -4,47 +4,47 @@ import GlowCard from "../components/GlowCard";
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="flex-center section-padding">
-      <div className="w-full h-full md:px-10 px-5">
+    <section id="certifications" className="section-padding">
+      <div className="mx-auto max-w-7xl">
         <TitleHeader
-          title="Certifications & Communities"
-          sub="📜 Professional Development & Memberships"
+          title="Certifications & communities"
+          sub="Professional development"
         />
 
-        <div className="lg:columns-3 md:columns-2 columns-1 mt-16 gap-6">
+        <ul className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {certificationsList.map((item, index) => (
-            <GlowCard card={item} key={index} index={index}>
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                  {/* Icon/Logo Wrapper */}
-                  <div className="w-12 h-12 flex-shrink-0 bg-offwhite-300 rounded-full flex justify-center items-center overflow-hidden border border-offwhite-300">
-                    <img 
-                      src={item.imgPath} 
-                      alt={item.issuer} 
-                      className="w-full h-full object-contain p-1.5"
-                      onError={(e) => { e.target.style.display = 'none' }} 
-                    />
+            <li key={item.title + item.issuer} className="reveal">
+              <GlowCard card={item} index={index}>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="size-14 shrink-0 bg-offwhite-50 rounded-full flex justify-center items-center overflow-hidden border border-offwhite-300">
+                      <img
+                        src={item.imgPath}
+                        alt=""
+                        loading="lazy"
+                        className="w-full h-full object-contain p-2"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-forest-200 leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-forest-100 text-sm font-semibold mt-1">
+                        {item.issuer}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    {/* Certification / Community Title */}
-                    <p className="font-bold text-forest-200 leading-tight mb-1">
-                      {item.title}
-                    </p>
-                    {/* Issuing Organization */}
-                    <p className="text-forest-100 text-sm font-semibold">
-                      {item.issuer}
-                    </p>
-                  </div>
+                  <p className="text-forest-300/90 text-sm leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                
-                {/* Brief description */}
-                <p className="text-forest-300 text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </GlowCard>
+              </GlowCard>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

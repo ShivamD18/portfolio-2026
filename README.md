@@ -6,32 +6,15 @@ An immersive, high-performance personal portfolio built with **React 19**, **Thr
 
 ## Highlights & Core Features
 
-- **Interactive 3D Hero Workstation**:
-  - Isometric 3D room rendered with `@react-three/fiber` and `@react-three/drei`.
-  - Realistic studio lighting, customized materials, and post-processing bloom effects.
-  - Interactive `OrbitControls` allowing smooth rotation and inspection across desktop and mobile devices.
-  - Floating ambient particle system with subtle motion dynamics.
-- **Scroll-Driven Career Timeline**:
-  - Unfolds professional experience as the visitor scrolls using GSAP `ScrollTrigger`.
-  - Custom SVG badges and circular timeline nodes for:
-    - **Advanced Manufacturing Soft Robotics Researcher** — *ELIXIR Lab, Toronto Metropolitan University*
-    - **Emergency Department Clerical Associate** — *William Osler Health System*
-    - **Lead Developer & Quantitative Analyst** — *Supply Chain Optimization & Logistics Intelligence Platform*
-- **Interactive 3D Tech Stack**:
-  - Floating 3D models (`.glb`) for core technologies with continuous floating animation and mouse interaction.
-- **Project Showcase**:
-  - Highlights flagship engineering systems:
-    - **Supply Chain Optimization & Demand Forecasting Platform** (Machine learning lead-time regression, stochastic ROP, safety stock modeling, and interactive Streamlit control tower).
-    - **Solar Panel Tracking PID Control Simulation** (Multi-condition closed-loop control system simulation in Python & Gazebo).
-    - **Quantitative Stock Market & Financial Analysis** (Historical risk, volatility, and trend evaluation pipelines).
-- **Interactive Glow Cards**:
-  - Cursor-following border glow effect (`GlowCard.jsx`) driven by radial gradients and trigonometric mouse tracking (`Math.atan2`).
-- **Dynamic Animated Counters**:
-  - Number ticker animations triggered on scroll to display milestones and statistics.
-- **Fully Functional Contact Form**:
-  - Integrated with **EmailJS** for direct client and recruiter communication without requiring an external backend server.
-- **Tailored Light Mode Design System**:
-  - Clean slate canvas (`#f8fafc`), crisp typography (`Mona Sans`), refined card borders, and responsive glassmorphic navbar.
+- **Interactive 3D hero workstation**: an isometric room rendered with `@react-three/fiber` and `@react-three/drei`, with studio lighting, selective bloom and floating particles. It rotates with the mouse on desktop and stays out of the way of scrolling on touch screens.
+- **Impact stats**: résumé-backed numbers (soft-robotics accuracy gain, QRS detection sensitivity, data volume, project count) that count up on scroll.
+- **Filterable project showcase**: 11 engineering and data projects with screenshots, key results, tech tags and links to code and live demos, filterable by category (Biomedical & DSP, Robotics & Controls, Embedded Systems, Data & Analytics, Design & Simulation).
+- **About and education**: bio, focus areas and relevant coursework at Toronto Metropolitan University.
+- **Experience timeline**: soft-robotics research at TMU's ELIXIR Lab and emergency-department work at William Osler Health System.
+- **Grouped technical skills** with bundled [Devicon](https://devicon.dev/) logos.
+- **Résumé download** from the navbar, hero and contact section.
+- **Contact form** powered by **EmailJS**, with success and error feedback, alongside direct email, LinkedIn and GitHub links.
+- **Accessible and responsive**: skip link, keyboard-friendly mobile menu, labelled controls, reduced-motion support, and layouts checked at phone, tablet and desktop widths.
 
 ---
 
@@ -53,39 +36,38 @@ An immersive, high-performance personal portfolio built with **React 19**, **Thr
 ```text
 portfolio-2026/
 ├── public/
-│   ├── images/              # Icons, badges, brand SVGs, and project preview assets
-│   │   ├── exp-*.svg        # Experience card horizontal badges
-│   │   ├── logo-*.svg       # Timeline circular logo marks
-│   │   └── bg-light.svg     # Hero background radial gradient & grid pattern
-│   └── models/              # Optimized 3D assets (.glb files)
-│       ├── optimized-room.glb
-│       ├── computer-optimized.glb
-│       └── *-transformed.glb
+│   ├── Shivam_Dave_Resume.pdf   # Résumé linked from the site
+│   ├── icons/                   # Skill logos (Devicon, MIT licence)
+│   ├── images/
+│   │   ├── projects/            # Project screenshots (WebP)
+│   │   ├── experience/          # Experience photos and logos (WebP)
+│   │   └── textures/            # Material textures for the 3D room
+│   └── models/
+│       └── optimized-room.glb   # Hero 3D room
 ├── src/
 │   ├── components/
-│   │   ├── models/          # Three.js 3D canvas components
-│   │   │   ├── hero_models/ # Room, HeroLights, Particles, HeroExperience
-│   │   │   ├── tech_logos/  # TechIconCardExperience
-│   │   │   └── contact/     # ContactExperience & Computer model
-│   │   ├── AnimatedCounter.jsx
-│   │   ├── Button.jsx
-│   │   ├── GlowCard.jsx     # Mouse-tracking glowing border card
-│   │   ├── NavBar.jsx       # Glassmorphic header with scroll state
-│   │   └── TitleHeader.jsx
+│   │   ├── models/hero_models/  # Room, HeroLights, Particles, HeroExperience
+│   │   ├── AnimatedCounter.jsx  # Count-up impact stats
+│   │   ├── GlowCard.jsx         # Mouse-tracking glowing border card
+│   │   ├── Icons.jsx            # Inline SVG icons
+│   │   ├── NavBar.jsx           # Header with mobile menu
+│   │   └── TitleHeader.jsx      # Section headings
 │   ├── constants/
-│   │   └── index.js         # Centralized portfolio data (experience, skills, projects)
-│   ├── sections/            # Page sections
+│   │   └── index.js             # All portfolio content: profile, projects, experience, skills
+│   ├── hooks/
+│   │   └── useReveal.js         # Fade-in on scroll
+│   ├── sections/                # Page sections, top to bottom
 │   │   ├── Hero.jsx
-│   │   ├── ShowcaseSection.jsx
-│   │   ├── FeatureCards.jsx
-│   │   ├── Experience.jsx   # Timeline with GSAP scroll animations
-│   │   ├── TechStack.jsx
+│   │   ├── About.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Experience.jsx
+│   │   ├── Skills.jsx
 │   │   ├── Certifications.jsx
 │   │   ├── Contact.jsx
 │   │   └── Footer.jsx
-│   ├── App.jsx              # Root page composition
-│   ├── index.css            # Tailwind v4 theme, utility classes, and custom keyframes
-│   └── main.jsx             # React DOM entry point
+│   ├── App.jsx                  # Root page composition
+│   ├── index.css                # Tailwind v4 theme, component classes and keyframes
+│   └── main.jsx                 # React DOM entry point
 ├── index.html
 ├── package.json
 └── vite.config.js
@@ -143,7 +125,9 @@ npm run preview
 
 ## Customization Guide
 
-- **Personal Information & Experience**: Edit [`src/constants/index.js`](src/constants/index.js) to update your bio, career experiences, skills, and project descriptions.
+- **Content**: Edit [`src/constants/index.js`](src/constants/index.js) to update your profile links, projects, stats, experience, skills and certifications. Projects marked `featured: true` show before "Show all"; a project without an `img` gets a generated cover from its `cover` metric.
+- **Images**: Add project screenshots to [`public/images/projects/`](public/images/projects) as WebP, about 1200px wide.
+- **Résumé**: Replace [`public/Shivam_Dave_Resume.pdf`](public/Shivam_Dave_Resume.pdf), keeping the file name.
 - **Visual Theme & Colors**: Modify the `@theme` variables and utility classes in [`src/index.css`](src/index.css).
 - **3D Models**: Place optimized `.glb` models into [`public/models/`](public/models) and reference them inside the corresponding R3F components.
 
@@ -155,5 +139,6 @@ npm run preview
 - **Degree**: Mechatronics Engineering, Toronto Metropolitan University
 - **Focus Areas**: Digital Signal Processing, Embedded Firmware, Biomedical Instrumentation, Soft Robotics & Quantitative Analytics
 - **Email**: [dave.shivam18@gmail.com](mailto:dave.shivam18@gmail.com)
-- **LinkedIn**: [linkedin.com/in/shivam-dave-a89072209](https://linkedin.com/in/shivam-dave-a89072209)
+- **LinkedIn**: [linkedin.com/in/shivamalapdave](https://www.linkedin.com/in/shivamalapdave)
+- **GitHub**: [github.com/ShivamD18](https://github.com/ShivamD18)
 
